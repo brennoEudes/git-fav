@@ -10,15 +10,15 @@ export class Favorites {
     // Dados:
     this.entries = [
       {
-        login: "brenno",
+        login: "brennoeudes",
         name: "brennoe",
-        repositories: 1,
+        public_repos: 1,
         followers: 1000,
       },
       {
         login: "brunno",
         name: "brunnoe",
-        repositories: 1,
+        public_repo: 1,
         followers: 1000,
       },
     ];
@@ -32,6 +32,9 @@ export class FavoritesView extends Favorites {
       root
     ); /* É a linha que liga as classes! Chama o construtor da 1º classe e passa este root p/ela! */
     // 1º console.log(this.root);
+
+    // Criando o HTML:
+    this.tbody = this.root.querySelector("table tbody");
     this.update();
   }
 
@@ -45,6 +48,19 @@ export class FavoritesView extends Favorites {
       // 4º console.log(user);
       const row = this.createRow();
       console.log(row);
+
+      row.querySelector(
+        ".user img"
+      ).src = `http://github.com/${user.login}.png`;
+
+      row.querySelector(".user img").alt = `Imagem de ${user.name}`;
+      row.querySelector(".user a").href = `http://github.com/${user.login}`;
+      row.querySelector(".user p").textContent = user.name;
+      row.querySelector(".user span").textContent = user.login;
+      row.querySelector(".repositories").textContent = user.public_repos;
+      row.querySelector(".followers").textContent = user.followers;
+
+      this.tbody.append(row); // append é funcionalidade da DOM q recebe um elemento HTMl criado na DOM!
     });
   }
 
@@ -54,15 +70,15 @@ export class FavoritesView extends Favorites {
 
     // Inserindo o content no elemento HTML:
     tr.innerHTML = `
-            <td>
-              <img src="http://github.com/brennoeudes.png" alt="" />
-              <a href="github.com/brennoeudes">
+            <td class="user">
+              <img src="" alt="" />
+              <a href="">
                 <p></p>
                 <span></span>
               </a>
             </td>
-            <td></td>
-            <td></td>
+            <td class="repositories"></td>
+            <td class="followers"></td>
             <td><button>Remove</button></td>
           `;
 
@@ -72,12 +88,9 @@ export class FavoritesView extends Favorites {
 
   // fcn remove todos os elementos:
   removeAllTr() {
-    // Criando o HTML:
-    const tbody = this.root.querySelector("table tbody");
-
     // pegando todas as linhas
     // P/ CADA usuário de "entries" damos o console.log;
-    tbody.querySelectorAll("tr").forEach((tr) => {
+    this.tbody.querySelectorAll("tr").forEach((tr) => {
       // 2º console.log(tr);
       tr.remove();
     });
@@ -90,4 +103,4 @@ export class FavoritesView extends Favorites {
 // 3º Separar a funcionalidade de remoção e chamar em outra fcn (Clean Code);
 // 4º Recriar cada coluna do html com template literal;
 // 5º Criar obj c/ os dados e uma fcn p/ carregá-los;
-// 6º Colocar os objs no html;
+// 6º Colocar os objs no html (criar HTML com JS);
