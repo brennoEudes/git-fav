@@ -2,6 +2,26 @@
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector("#app");
+    this.load();
+  }
+
+  // fcn p/ carregamento dos dados:
+  load() {
+    // Dados:
+    this.entries = [
+      {
+        login: "brenno",
+        name: "brennoe",
+        repositories: 1,
+        followers: 1000,
+      },
+      {
+        login: "brunno",
+        name: "brunnoe",
+        repositories: 1,
+        followers: 1000,
+      },
+    ];
   }
 }
 
@@ -18,6 +38,36 @@ export class FavoritesView extends Favorites {
   // remove todos os elementos sempre que carregar a pág;
   update() {
     this.removeAllTr();
+
+    // 3º console.log(entries);
+
+    this.entries.forEach((user) => {
+      // 4º console.log(user);
+      const row = this.createRow();
+      console.log(row);
+    });
+  }
+
+  createRow() {
+    // Criando elemento HTML pela DOM:
+    const tr = document.createElement("tr");
+
+    // Inserindo o content no elemento HTML:
+    tr.innerHTML = `
+            <td>
+              <img src="http://github.com/brennoeudes.png" alt="" />
+              <a href="github.com/brennoeudes">
+                <p></p>
+                <span></span>
+              </a>
+            </td>
+            <td></td>
+            <td></td>
+            <td><button>Remove</button></td>
+          `;
+
+    // retorna linha pois será usada p/ cada elemento:
+    return tr;
   }
 
   // fcn remove todos os elementos:
@@ -38,3 +88,6 @@ export class FavoritesView extends Favorites {
 // 1º Construir e integrar as classes nos arquivos;
 // 2º Criar o html na classe de visualização, verificando o acesso a cada linha;
 // 3º Separar a funcionalidade de remoção e chamar em outra fcn (Clean Code);
+// 4º Recriar cada coluna do html com template literal;
+// 5º Criar obj c/ os dados e uma fcn p/ carregá-los;
+// 6º Colocar os objs no html;
