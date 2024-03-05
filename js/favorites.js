@@ -7,21 +7,47 @@ export class Favorites {
 
   // fcn p/ carregamento dos dados:
   load() {
+
+    this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || []; //A fcn parse transforma um elemento JSON no formato q estiver dentro do parênteses. Sem o parse, os elementos são apenas strings! No exemplo acima, garante q @github-favorites pego no localstorage seja um array vazio.
+
+    console.log(this.entries);
+
     // Dados:
-    this.entries = [
-      {
-        login: "brennoeudes",
-        name: "brennoe",
-        public_repos: 1,
-        followers: 1000,
-      },
-      {
-        login: "brunno",
-        name: "brunnoe",
-        public_repo: 1,
-        followers: 1000,
-      },
-    ];
+    // this.entries = [
+    //   {
+    //     login: "brennoeudes",
+    //     name: "brennoe",
+    //     public_repos: 1,
+    //     followers: 1000,
+    //   },
+    //   {
+    //     login: "brunno",
+    //     name: "brunnoe",
+    //     public_repo: 1,
+    //     followers: 1000,
+    //   },
+    //   {
+    //     login: "diego3g",
+    //     name: "brunnoe",
+    //     public_repo: 1,
+    //     followers: 1000,
+    //   },
+    // ];
+  }
+
+  delete(user) {
+    // Higher-order functions (map, filter, find, reduce)
+    const filteredEntries = this.entries.filter(
+      (entry) =>
+        // 6º console.log(entry);
+        entry.login !== user.login
+    ); // se o entry NÃO for diferente do user, será deletado! (retorna true ou false. Se falso, exclui do novo array)
+
+    // 7º console.log(filteredEntries);
+
+    this.entries = filteredEntries; // reatribui um novo array, sem acabar com o antigo.
+    this.update();
+    // this.save(); // tb salva aqui p/ evitar erros
   }
 }
 
@@ -47,7 +73,7 @@ export class FavoritesView extends Favorites {
     this.entries.forEach((user) => {
       // 4º console.log(user);
       const row = this.createRow();
-      console.log(row);
+      // 5º console.log(row);
 
       row.querySelector(
         ".user img"
@@ -59,6 +85,15 @@ export class FavoritesView extends Favorites {
       row.querySelector(".user span").textContent = user.login;
       row.querySelector(".repositories").textContent = user.public_repos;
       row.querySelector(".followers").textContent = user.followers;
+
+      // se não for necessário colocar + de um evento de clique, pode-se usar "onclick":
+      row.querySelector(".remove").onclick = () => {
+        const isOK = confirm("Tem certeza de que deseja deletar esse perfil?"); // confirm é metodo JS q devolve boolean
+
+        if (isOK) {
+          this.delete(user);
+        }
+      };
 
       this.tbody.append(row); // append é funcionalidade da DOM q recebe um elemento HTMl criado na DOM!
     });
@@ -79,7 +114,7 @@ export class FavoritesView extends Favorites {
             </td>
             <td class="repositories"></td>
             <td class="followers"></td>
-            <td><button>Remove</button></td>
+            <td><button class="remove">Remove</button></td>
           `;
 
     // retorna linha pois será usada p/ cada elemento:
@@ -104,3 +139,5 @@ export class FavoritesView extends Favorites {
 // 4º Recriar cada coluna do html com template literal;
 // 5º Criar obj c/ os dados e uma fcn p/ carregá-los;
 // 6º Colocar os objs no html (criar HTML com JS);
+// 7º Construir a lógica do delete user (Mantém o princípio da imutabilidade)
+// 8º Conexão com o localstorage
