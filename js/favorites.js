@@ -1,3 +1,15 @@
+// PASSO A PASSO:
+// 1º Construir e integrar as classes nos arquivos;
+// 2º Criar o html na classe de visualização, verificando o acesso a cada linha;
+// 3º Separar a funcionalidade de remoção e chamar em outra fcn (Clean Code);
+// 4º Recriar cada coluna do html com template literal;
+// 5º Criar obj c/ os dados e uma fcn p/ carregá-los;
+// 6º Colocar os objs no html (criar HTML com JS);
+// 7º Construir a lógica do delete user (Mantém o princípio da imutabilidade);
+// 8º Conexão com o localstorage;
+// 9º Conexão com API GitHub (import) p/ fazer a pesquisa de usuários;
+// 10º Configurar a pesquisa asnyc dos usuários, considerando erros e usuários existentes.
+
 import { GithubUser } from "./githubUser.js";
 
 // 1º CLASSE: vai conter a lógica dos dados; como os dados serão estruturados.
@@ -183,14 +195,4 @@ export class FavoritesView extends Favorites {
   }
 }
 
-// PASSO A PASSO:
-// 1º Construir e integrar as classes nos arquivos;
-// 2º Criar o html na classe de visualização, verificando o acesso a cada linha;
-// 3º Separar a funcionalidade de remoção e chamar em outra fcn (Clean Code);
-// 4º Recriar cada coluna do html com template literal;
-// 5º Criar obj c/ os dados e uma fcn p/ carregá-los;
-// 6º Colocar os objs no html (criar HTML com JS);
-// 7º Construir a lógica do delete user (Mantém o princípio da imutabilidade)
-// 8º Conexão com o localstorage
-// 9º Conexão com API GitHub (import) p/ fazer a pesquisa de usuários
-// 10º Configurar a pesquisa asnyc dos usuários, considerando erros e usuários existentes
+
