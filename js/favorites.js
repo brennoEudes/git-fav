@@ -1,16 +1,20 @@
+import { GithubUser } from "./githubUser.js";
+
 // 1º CLASSE: vai conter a lógica dos dados; como os dados serão estruturados.
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector("#app");
     this.load();
+
+    // Como usamos o "static" não precisamos do "new" aqui. Como recebemos uma promise, devemos usas o then aqui tb:
+    GithubUser.search("diego3g").then((user) => console.log(user));
   }
 
   // fcn p/ carregamento dos dados:
   load() {
-
     this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || []; //A fcn parse transforma um elemento JSON no formato q estiver dentro do parênteses. Sem o parse, os elementos são apenas strings! No exemplo acima, garante q @github-favorites pego no localstorage seja um array vazio.
 
-    console.log(this.entries);
+    // 8º console.log(this.entries);
 
     // Dados:
     // this.entries = [
@@ -141,3 +145,4 @@ export class FavoritesView extends Favorites {
 // 6º Colocar os objs no html (criar HTML com JS);
 // 7º Construir a lógica do delete user (Mantém o princípio da imutabilidade)
 // 8º Conexão com o localstorage
+// 9º Conexão com API GitHub (import) p/ fazer a pesquisa de usuários
