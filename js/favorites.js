@@ -49,14 +49,14 @@ export class Favorites {
 
     // tente executar esse código:
     try {
-      // // verifica se o usuário já existe (devolve um obj):
-      // const userExists = this.entries.find((entry) => entry.login.toLowerCase() === username.toLowerCase());
+      // verifica se o usuário já existe antes de ir ao github (devolve um obj):
+      const userExists = this.entries.find((entry) => entry.login.toLowerCase() === username.toLowerCase());
 
-      // // 11º console.log(userExists);
+      // 11º console.log(userExists);
 
-      // if (userExists) {
-      //   throw new Error("Usuário já cadastrado!");
-      // }
+      if (userExists) {
+        throw new Error("Usuário já cadastrado!");
+      }
 
       const user = await GithubUser.search(username);
       console.log(user);
@@ -158,7 +158,7 @@ export class FavoritesView extends Favorites {
     tr.innerHTML = `
             <td class="user">
               <img src="" alt="" />
-              <a href="">
+              <a href="" target="_blank">
                 <p></p>
                 <span></span>
               </a>
