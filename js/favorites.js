@@ -7,7 +7,7 @@ export class Favorites {
     this.load();
 
     // Como usamos o "static" não precisamos do "new" aqui. Como recebemos uma promise, devemos usas o then aqui tb:
-    GithubUser.search("diego3g").then((user) => console.log(user));
+    GithubUser.search("brennoeudes").then((user) => console.log(user));
   }
 
   // fcn p/ carregamento dos dados:
@@ -39,6 +39,42 @@ export class Favorites {
     // ];
   }
 
+  // salvando os entries no localstorage:
+  save() {
+    localStorage.setItem("@github-favorites:", JSON.stringify(this.entries)); // JSON Stringify transforma obj JS em obj tipo txt string p/ salvar no localstorage!
+  }
+
+  async add(username) {
+    // 10º console.log(username);
+
+    // tente executar esse código:
+    try {
+      // // verifica se o usuário já existe (devolve um obj):
+      // const userExists = this.entries.find((entry) => entry.login.toLowerCase() === username.toLowerCase());
+
+      // // 11º console.log(userExists);
+
+      // if (userExists) {
+      //   throw new Error("Usuário já cadastrado!");
+      // }
+
+      const user = await GithubUser.search(username);
+      console.log(user);
+
+      // se der ruim, capture o erro e lance a seguinte msg de erro p/ q o catch execute-a:
+      if (user.login === undefined) {
+        throw new Error("Usuário não encontrado!");
+      }
+
+      this.entries = [user, ...this.entries]; // cria novo array, c/ novo usuário e tb os antigos (spread operator)
+
+      this.update(); // atualiza a aplicação
+      this.save(); // salva no localstorage
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   delete(user) {
     // Higher-order functions (map, filter, find, reduce)
     const filteredEntries = this.entries.filter(
@@ -66,6 +102,17 @@ export class FavoritesView extends Favorites {
     // Criando o HTML:
     this.tbody = this.root.querySelector("table tbody");
     this.update();
+    this.onadd();
+  }
+
+  // evento de busca na api github
+  onadd() {
+    const addButton = this.root.querySelector(".search button");
+    addButton.onclick = () => {
+      const { value } = this.root.querySelector(".search input"); // pegando o valor do input
+      // 9º console.log(value);
+      this.add(value);
+    };
   }
 
   // remove todos os elementos sempre que carregar a pág;
@@ -146,3 +193,4 @@ export class FavoritesView extends Favorites {
 // 7º Construir a lógica do delete user (Mantém o princípio da imutabilidade)
 // 8º Conexão com o localstorage
 // 9º Conexão com API GitHub (import) p/ fazer a pesquisa de usuários
+// 10º Configurar a pesquisa asnyc dos usuários, considerando erros e usuários existentes
