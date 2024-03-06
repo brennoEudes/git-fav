@@ -62,39 +62,40 @@ nav button {
 
 /* TABLE */
 .table-container {
-    border-radius: 1.2rem;
-    border: 1px solid #4A808C;
-    overflow: hidden; /* Garante que o border-radius seja aplicado corretamente */
-  }
-  
-  table {
-    background: #06181c;
-    border-collapse: collapse; /* Elimina os espaços entre os quadradinhos */
-    width: 100%; /* Garante que a tabela ocupe todo o espaço do contêiner */
-  }
-  
-  thead {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 3.2rem;
-    background: #092d38;
-  }
-  
-  table th {
-    text-align: left;
-    padding: 1.5rem;
-  }
-  
-  .empty-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    color: #4e5455;
-  }
-  
-  .empty-info img {
-    width: 8rem;
-    height: 100%;
-  }
-  
+  border-radius: 1.2rem;
+  border: 1px solid #4a808c;
+  overflow: hidden; /* Garante que o border-radius seja aplicado corretamente */
+}
+
+table {
+  background: #06181c;
+  border-collapse: collapse; /* Elimina os espaços entre os quadradinhos */
+  width: 100%; /* Garante que a tabela ocupe todo o espaço do contêiner */
+}
+
+thead {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 3.2rem;
+  background: #092d38;
+}
+
+table th {
+  text-align: left;
+  padding: 1.5rem;
+}
+
+.empty-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  color: #4e5455;
+
+  padding: 6rem 4rem;
+}
+
+.empty-info img {
+  width: 8rem;
+  height: 100%;
+}
