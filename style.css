@@ -59,3 +59,14 @@ nav button {
   color: #fff;
   background: #065e7c;
 }
+
+/* TABLE */
+table {
+  
+}
+
+thead {
+  font-weight: 700;
+  line-height: 3.2rem;
+  background: #092d38;
+}
