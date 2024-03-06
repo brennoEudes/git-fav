@@ -8,10 +8,19 @@
   font-size: 62.5%;
 }
 
+/* BODY */
 body {
   font-size: 1.6rem;
   font-family: "Roboto", sans-serif;
-  color: #E1E1E6;
+  color: #e1e1e6;
   background: #000;
 }
 
+/* APP */
+#app {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+
+  padding: 2rem;
+}
