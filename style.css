@@ -99,16 +99,10 @@ table {
   width: 100%; /* Garante que a tabela ocupe todo o espaço do contêiner */
 }
 
-thead {
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 3.2rem;
-  background: #092d38;
-}
-
 table th {
+  background: #06181c;
   text-align: left;
-  padding: 1.4rem 0.8rem;
+  padding: 1.6rem 1.2rem;
 }
 
 /* EMPTY TABLE */
@@ -127,19 +121,13 @@ table th {
   height: 100%;
 }
 
-table tr {
-  align-items: center;
-  text-align: left;
-
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 3.2rem;
-
-  color: #e1e1e6;
+table tr:nth-child(odd) {
+  /* pegando as linhas ímpares */
+  background: black;
 }
 
 td {
-  padding: 1.4rem 0.8rem;
+  padding: 1.6rem 1.2rem;
 }
 
 td.user {
