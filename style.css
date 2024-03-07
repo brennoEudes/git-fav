@@ -69,6 +69,15 @@ nav button {
   background: #065e7c;
 }
 
+nav button:hover {
+  color: #065e7c;
+  background: #fff;
+}
+
+nav button:hover img {
+  content: url("./assets/star-icon-3.svg"); /* Altera a img do botão no hover */
+}
+
 /* TABLE */
 .table-container {
   border-radius: 1.2rem;
