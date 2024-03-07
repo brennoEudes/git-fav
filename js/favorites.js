@@ -99,7 +99,7 @@ export class Favorites {
 
     this.entries = filteredEntries; // reatribui um novo array, sem acabar com o antigo.
     this.update();
-    // this.save(); // tb salva aqui p/ evitar erros
+    this.save(); // tb salva aqui p/ evitar erros
   }
 }
 
