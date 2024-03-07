@@ -39,7 +39,8 @@ header > img {
 }
 
 nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 
 nav input {
@@ -49,6 +50,8 @@ nav input {
   border-radius: 0.5rem 0 0 0.5rem;
 
   background: #06181c;
+
+  width: 100%; /* Define que o input ocupará 100% da largura da div */
 }
 
 nav button {
