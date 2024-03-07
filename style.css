@@ -51,6 +51,7 @@ nav input {
   border-radius: 0.5rem 0 0 0.5rem;
 
   background: #06181c;
+  color: #fff;
 
   width: 100%; /* Define que o input ocupará 100% da largura da div */
 }
