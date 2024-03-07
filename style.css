@@ -79,17 +79,18 @@ nav button:hover img {
 }
 
 /* TABLE */
-table * {
-  width: 100%;
-  font-size: 1.4rem;
-  line-height: 3.2rem;
-  color: #e1e1e6;
-}
-
 .table-container {
   border-radius: 1.2rem;
   border: 1px solid #4a808c;
   overflow: hidden; /* Garante que o border-radius seja aplicado corretamente */
+}
+
+table * {
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  color: #e1e1e6;
+  font-weight: 700;
 }
 
 table {
@@ -107,9 +108,10 @@ thead {
 
 table th {
   text-align: left;
-  padding: 1.5rem;
+  padding: 1.4rem 0.8rem;
 }
 
+/* EMPTY TABLE */
 .empty-info {
   display: flex;
   align-items: center;
@@ -125,4 +127,53 @@ table th {
   height: 100%;
 }
 
+table tr {
+  align-items: center;
+  text-align: left;
 
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.2rem;
+
+  color: #e1e1e6;
+}
+
+td {
+  padding: 1.4rem 0.8rem;
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+td.user img {
+  max-width: 5.6rem;
+  max-height: 5.6rem;
+
+  object-fit: cover; /* P/ casos em q as imgs tenham a necessidade de se encaixar nas medidas acima*/
+  border-radius: 50%; /* macete p/ arredondar a img! */
+
+  display: none;
+}
+
+td.user a {
+  text-decoration: none;
+  color: #e1e1e6;
+
+  cursor: pointer;
+}
+
+td.user span {
+  font-weight: 400;
+}
+
+td .remove {
+  background: none;
+  border: none;
+
+  color: red;
+
+  cursor: pointer;
+}
