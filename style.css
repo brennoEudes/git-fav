@@ -79,6 +79,13 @@ nav button:hover img {
 }
 
 /* TABLE */
+table * {
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 3.2rem;
+  color: #e1e1e6;
+}
+
 .table-container {
   border-radius: 1.2rem;
   border: 1px solid #4a808c;
@@ -117,3 +124,5 @@ table th {
   width: 8rem;
   height: 100%;
 }
+
+
