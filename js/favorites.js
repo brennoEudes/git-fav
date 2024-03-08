@@ -191,9 +191,7 @@ export class FavoritesView extends Favorites {
             </td>
             <td class="repositories"></td>
             <td class="followers"></td>
-            <td><button class="remove">
-            <img src="../assets/red-delete-10437.svg" alt="Delete icon" />
-            </button></td>
+            <td><button class="remove">x</button></td>
           `;
 
     // retorna linha pois será usada p/ cada elemento:
