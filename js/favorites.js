@@ -78,7 +78,7 @@ export class Favorites {
       // 11º console.log(userExists);
 
       if (userExists) {
-        throw new Error("Usuário já cadastrado!");
+        throw new Error("User already exists!");
       }
 
       const user = await GithubUser.search(username);
@@ -86,7 +86,7 @@ export class Favorites {
 
       // se der ruim, capture o erro e lance a seguinte msg de erro p/ q o catch execute-a:
       if (user.login === undefined) {
-        throw new Error("Usuário não encontrado!");
+        throw new Error("User not found!");
       }
 
       this.entries = [user, ...this.entries]; // cria novo array, c/ novo usuário e tb os antigos (spread operator)
@@ -163,7 +163,7 @@ export class FavoritesView extends Favorites {
 
       // se não for necessário colocar + de um evento de clique, pode-se usar "onclick":
       row.querySelector(".remove").onclick = () => {
-        const isOK = confirm("Tem certeza de que deseja deletar esse perfil?"); // confirm é metodo JS q devolve boolean
+        const isOK = confirm("Are you sure you want to delete this profile?"); // confirm é metodo JS q devolve boolean
 
         if (isOK) {
           this.delete(user);
