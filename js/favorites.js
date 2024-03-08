@@ -111,6 +111,7 @@ export class Favorites {
     this.entries = filteredEntries; // reatribui um novo array, sem acabar com o antigo.
     this.update();
     this.save(); // tb salva aqui p/ evitar erros
+    this.clearInput();
   }
 }
 
@@ -135,6 +136,7 @@ export class FavoritesView extends Favorites {
       const { value } = this.root.querySelector(".search input"); // pegando o valor do input
       // 9º console.log(value);
       this.add(value);
+      this.clearInput();
     };
   }
 
@@ -204,5 +206,11 @@ export class FavoritesView extends Favorites {
       // 2º console.log(tr);
       tr.remove();
     });
+  }
+
+  // limpa input:
+  clearInput() {
+    const input = this.root.querySelector(".search input");
+    input.value = ""; // Define o valor do input como uma string vazia para limpá-lo
   }
 }
