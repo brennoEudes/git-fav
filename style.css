@@ -166,3 +166,28 @@ td .remove {
 
   cursor: pointer;
 }
+
+/* MEDIA QUERIES */
+@media (min-width: 1024px) {
+  #app {
+    padding: 12rem 16rem;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav {
+    gap: 0.8rem;
+
+    input {
+      border-radius: 0.5rem;
+      font-size: 1.6rem;
+    }
+    button {
+      border-radius: 0.5rem;
+      font-size: 1.4rem;
+    }
+  }
+}
