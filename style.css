@@ -167,6 +167,11 @@ td .remove {
   cursor: pointer;
 }
 
+td .remove img {
+ max-width: 1.6rem;
+ max-height: auto;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 1024px) {
   #app {
