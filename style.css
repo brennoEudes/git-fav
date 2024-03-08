@@ -209,4 +209,12 @@ td .remove {
       width: 12rem;
     }
   }
+
+  td {
+    padding: 2.4rem 2.4rem 2.4rem 4rem;
+  }
+
+  td.user img {
+    display: flex;
+  }
 }
