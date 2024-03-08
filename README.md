@@ -10,7 +10,7 @@ Whether you're looking for inspiration, seeking collaborators, or simply want to
 ## Development Challenges
 One of the significant development challenges I tackled was implementing the CRUD operations (Create, Read, Update, Delete) for managing GitHub user profiles. I needed to ensure that users could seamlessly add new profiles, update existing ones, delete profiles they no longer needed, and save their changes securely.
 
-Saving user profiles securely was another significant challenge. I opted to use the localStorage to persist user data locally. This involved serializing and deserializing profile data to and from JSON format, managing data consistency, and implementing backup and recovery mechanisms to prevent data loss.
+Saving user profiles securely was another significant challenge. I opted to use the localStorage to persist user data locally. This involved serializing and deserializing profile data to and from JSON format.
 
 ## Technologies
 The technologies used were:
