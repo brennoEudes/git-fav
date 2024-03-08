@@ -119,7 +119,7 @@ table th {
 
 .empty-info img {
   width: 8rem;
-  height: 100%;
+  height: auto;
 }
 
 table tr:nth-child(odd) {
@@ -188,6 +188,16 @@ td .remove {
     button {
       border-radius: 0.5rem;
       font-size: 1.4rem;
+    }
+  }
+
+  .empty-info {
+    padding: 24rem 12rem;
+    font-size: 4rem;
+    gap: 6rem;
+
+    img {
+      width: 12rem;
     }
   }
 }
