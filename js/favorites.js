@@ -51,6 +51,15 @@ export class Favorites {
     // ];
   }
 
+  checkEmpty() {
+    if (this.entries.length > 0) {
+      // Verifica se há usuários na lista
+      this.root.querySelector(".empty-info").style.display = "none"; // Oculta a div "empty-info"
+    } else {
+      this.root.querySelector(".empty-info").style.display = "flex"; // Exibe a div "empty-info" se não houver usuários
+    }
+  }
+
   // salvando os entries no localstorage:
   save() {
     localStorage.setItem("@github-favorites:", JSON.stringify(this.entries)); // JSON Stringify transforma obj JS em obj tipo txt string p/ salvar no localstorage!
@@ -62,7 +71,9 @@ export class Favorites {
     // tente executar esse código:
     try {
       // verifica se o usuário já existe antes de ir ao github (devolve um obj):
-      const userExists = this.entries.find((entry) => entry.login.toLowerCase() === username.toLowerCase());
+      const userExists = this.entries.find(
+        (entry) => entry.login.toLowerCase() === username.toLowerCase()
+      );
 
       // 11º console.log(userExists);
 
@@ -130,6 +141,7 @@ export class FavoritesView extends Favorites {
   // remove todos os elementos sempre que carregar a pág;
   update() {
     this.removeAllTr();
+    this.checkEmpty();
 
     // 3º console.log(entries);
 
@@ -194,5 +206,3 @@ export class FavoritesView extends Favorites {
     });
   }
 }
-
-
