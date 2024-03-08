@@ -184,7 +184,7 @@ export class FavoritesView extends Favorites {
               <img src="" alt="" />
               <a href="" target="_blank">
                 <p></p>
-                <span></span>
+                <span>/</span>
               </a>
             </td>
             <td class="repositories"></td>
