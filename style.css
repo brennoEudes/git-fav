@@ -84,6 +84,7 @@ nav button:hover img {
   border-radius: 1.2rem;
   border: 1px solid #4a808c;
   overflow: hidden; /* Garante que o border-radius seja aplicado corretamente */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
 }
 
 table * {
